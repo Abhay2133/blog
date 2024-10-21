@@ -73,8 +73,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Config next.config.mjs
-        run: echo -e "/** @type {import('next').NextConfig} */ \nconst nextConfig = {basePath:'/blog'}; \nexport default nextConfig;" > next.config.mjs
+      # - name: Config next.config.mjs
+      #   run: echo -e "/** @type {import('next').NextConfig} */ \nconst nextConfig = {basePath:'/blog'}; \nexport default nextConfig;" > next.config.mjs
       - name: Build with Next.js
         run: cat next.config.mjs; ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
