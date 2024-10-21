@@ -74,7 +74,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Config next.config.mjs
-        run: echo -n "/** @type {import('next').NextConfig} */ \nconst nextConfig = {basePath:'/blog'}; \nexport default nextConfig;" > next.config.mjs
+        run: echo -e "/** @type {import('next').NextConfig} */ \nconst nextConfig = {basePath:'/blog'}; \nexport default nextConfig;" > next.config.mjs
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
